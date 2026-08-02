@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./header.module.scss";
+import LoginIcon from '@mui/icons-material/Login';
 
 function Navbar() {
   return (
@@ -22,7 +23,8 @@ function Navbar() {
           <div className={styles.navActions}>
           <Link to="/wishlist">❤️wishlist</Link>
           <Link to="/basket">🛒basket</Link>
-          <Link to="/login" className={styles.btn}>Login</Link>
+          <Link to="/login" className={styles.btn}><LoginIcon/>Login</Link>
+          
         </div>
       </nav>
     </header>

@@ -1,0 +1,101 @@
+.categoriesSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    background-color:  #161929;
+    height: 100%;
+    .categoriesSection__list {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    .categoriesSection__item    {
+        width: 12vw;
+        height: 120px;
+        background-color: #f0f0f0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 12px;
+
+        cursor: pointer;
+        
+
+        
+        
+        transition: transform 0.3s ease-in-out;
+        @media (max-width: 768px) {
+        .categoriesSection__item {
+        max-width: 150px;
+    }
+}
+
+        @media (max-width: 480px) {
+        .categoriesSection__item {
+        max-width: 100%;
+  }
+}
+
+        .categoriesSection__item img {
+        width: 80%;
+        height: auto;
+}
+
+
+
+
+        &:hover {
+            transform: scale(1.05);
+        }
+        
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        
+        h3 {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+        }
+    }
+    .categoriesSection__item1{
+        background-image: url('/assets/soup.png');
+        background-size: cover;
+        background-position: center;
+    }
+    .categoriesSection__item2{
+        background-image: url('/assets/salad.png');
+        background-size: cover;
+        background-position: center;
+    }
+    .categoriesSection__item3{
+        background-image: url('/assets/maincourse.png');
+        background-size: cover;
+        background-position: center;
+    }
+    .categoriesSection__item4{
+        background-image: url('/assets/deserts.png');
+        background-size: cover;
+        background-position: center;
+    }
+    .categoriesSection__item5{
+        background-image: url('/assets/drinks.png');
+        background-size: cover;
+        background-position: center;
+    }
+    .categoriesSection__item6{
+        background-image: url('/assets/snacks.png');
+        background-size: cover;
+        background-position: center;
+    }
+}
