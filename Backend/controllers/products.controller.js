@@ -13,8 +13,8 @@ const productController = {
 
     post : async (req, res) => {
   try {
-    const { name, foodname, price, imageUrl } = req.body;
-    const newProduct = new Product({ name, foodname, price, imageUrl });
+    const { CompanyName, FoodName, price, imageUrl } = req.body;
+    const newProduct = new Product({ CompanyName, FoodName, price, imageUrl });
     await newProduct.save();
     res.status(201).json(newProduct);
   } catch (error) {
@@ -25,7 +25,7 @@ const productController = {
 
     patch :  async (req, res) => {
   try {
-    const { id } = req.params;   // .id əvəzinə düzgün destructure
+    const { id } = req.params;   
     const updatedProduct = await Product.findByIdAndUpdate(id, req.body, { new: true });
     if (!updatedProduct) {
       return res.status(404).json({ error: 'Product not found' });
