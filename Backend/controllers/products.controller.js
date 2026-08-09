@@ -1,4 +1,4 @@
-const Product = require('../models/product.model');
+const Product = require('../models/food.model');
 
 const productController = {
     getAll :  async (req, res) => {
@@ -11,16 +11,28 @@ const productController = {
   }
 },
 
-    post : async (req, res) => {
+    // YENİ — bunu əlavə et
+    getByRestaurant: async (req, res) => {
   try {
-    const { CompanyName, FoodName, price, imageUrl } = req.body;
-    const newProduct = new Product({ CompanyName, FoodName, price, imageUrl });
+    const { restaurantId } = req.params;
+    const products = await Product.find({ restaurantId });
+    res.json(products);
+  } catch (error) {
+    console.error('Error fetching products by restaurant:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+},
+
+   post: async (req, res) => {
+  try {
+    const { FoodName, Price, imageUrl, description, restaurantId } = req.body;
+    const newProduct = new Product({ FoodName, Price, imageUrl, description, restaurantId });
     await newProduct.save();
     res.status(201).json(newProduct);
   } catch (error) {
-    console.error('Error creating product:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
+  console.error('Error creating restaurant:', error);   // BUNU ƏLAVƏ ET
+  res.status(500).json({ error: 'Internal Server Error' });
+}
 },
 
     patch :  async (req, res) => {

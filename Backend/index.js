@@ -4,21 +4,22 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const productRouter = require('./routes/products.router');
+const restaurantRouter = require('./routes/restaurant.router');
 
 dotenv.config();
 
 const app = express();
-app.use(cors());
 const port = process.env.PORT;
+
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//Routes
+// Routes — HAMISI middleware-lərdən SONRA
 app.use(productRouter);
+app.use('/restaurants', restaurantRouter);
 
-
-
-// 404 handler — HƏMİŞƏ BÜTÜN ROUTE-LARDAN SONRA
+// 404 handler
 app.use((req, res) => {
   res.status(404).json({ error: 'Not Found' });
 });

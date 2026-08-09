@@ -1,8 +1,11 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import styles from './Body.module.scss'
+import { useContext } from 'react';
+import { DataContext } from '../../Context/DataContext.jsx';
 
 function Body() {
+  const { basket, addToBasket } = useContext(DataContext);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -31,7 +34,9 @@ function Body() {
                 alt={product.FoodName}
                 className={styles['product-image']}
               />
-              <button className={styles['basket-button']}>🛒</button>
+              <button className={styles['basket-button']} onClick={() => addToBasket(product)}>
+                🛒
+              </button>
             </div>
             <div className={styles['product-info']}>
               <div className={styles['name-row']}>

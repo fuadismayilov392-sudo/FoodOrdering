@@ -5,6 +5,7 @@ import Homepage from "../pages/Homepage";
 import Menupage from "../pages/MenuPage";
 import Contactpage from "../pages/Contactpage";
 import Orderpage from "../pages/Orderspage";
+import BasketPage from "../pages/Basketpage/BasketPage";
 
 const routes = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const routes = createBrowserRouter([
         path: "contact",
         element: <Contactpage />,
       },
+      {
+        path: "basket",
+        element: <BasketPage />,
+      }
     ],
   },
 ]);
