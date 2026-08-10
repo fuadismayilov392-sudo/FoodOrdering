@@ -1,11 +1,13 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import styles from './Body.module.scss'
+import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react';
 import { DataContext } from '../../Context/DataContext.jsx';
 
 function Body() {
   const { basket, addToBasket } = useContext(DataContext);
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 

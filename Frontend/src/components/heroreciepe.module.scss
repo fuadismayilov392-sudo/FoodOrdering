@@ -1,5 +1,10 @@
+$accent-warm: #e0955b;
+$text-dark: #4a3f35;
+
 .heroreciepe {
-    background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60') ;
+    background-image: linear-gradient(180deg, rgba(74, 63, 53, 0.15) 0%, rgba(74, 63, 53, 0.55) 100%), url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60');
+    background-size: cover;
+    background-position: center;
     height: 32vh;
     display: flex;
     flex-direction: column;
@@ -7,39 +12,45 @@
     align-items: center;
     color: #fff;
     position: relative;
+    border-radius: 0 0 28px 28px;
+
     .heroreciepe__button {
         position: absolute;
         bottom: 80px;
         left: 10%;
-        padding: 10px 20px;
-        border-radius: 12px;
+        padding: 10px 22px;
+        border-radius: 24px;
         border: none;
         color: #fff;
-        font-weight: bold;
+        font-weight: 600;
+        font-size: 14px;
         cursor: pointer;
-        background-color: rgba(255, 255, 255, 0.1);
-        
-        &:hover{
-            background-color: rgba(255, 255, 255, 0.2);
+        background-color: $accent-warm;
+        transition: background 0.2s ease, transform 0.15s ease;
+
+        &:hover {
+            background-color: darken($accent-warm, 8%);
+            transform: translateY(-2px);
         }
     }
+
     .heroreciepe__wishlist {
         position: absolute;
-        bottom: 40px;
+        bottom: 34px;
         left: 10%;
-        padding: 10px 20px;
-        border-radius: 12px;
-        border: none;
+        padding: 10px 22px;
+        border-radius: 24px;
+        border: 1.5px solid rgba(255, 255, 255, 0.7);
         color: #fff;
-        font-weight: bold;
+        font-weight: 600;
+        font-size: 14px;
         cursor: pointer;
-        background-color: rgba(255, 255, 255, 0.1);
-        
-        &:hover{
-            background-color: rgba(255, 255, 255, 0.2);
+        background-color: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(4px);
+        transition: background 0.2s ease;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.25);
         }
-    
-    
     }
-        
 }

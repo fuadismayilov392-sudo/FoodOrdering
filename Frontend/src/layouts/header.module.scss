@@ -1,77 +1,109 @@
-.header{
-    background-color: #161929;
-    .nav{
+$header-bg: #fdf8f3;
+$text-dark: #4a3f35;
+$text-muted: #a89a8a;
+$accent-warm: #e0955b;
+$border-color: #f0e4d6;
+$input-bg: #f7efe4;
+
+.header {
+    background-color: $header-bg;
+    border-bottom: 1px solid $border-color;
+
+    .nav {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         width: 95%;
-        padding: 10px 20px;
-        .navLinks{
+        padding: 14px 20px;
+        margin: 0 auto;
+
+        .navLinks {
             display: flex;
             flex-direction: row;
             gap: 20px;
             list-style-type: none;
-            li{
-                a{
+
+            li {
+                a {
                     text-decoration: none;
-                    color: #fff;
-                    font-weight: bold;
-                    &:hover{
-                        color: #f0a500;
+                    color: $text-dark;
+                    font-weight: 600;
+                    transition: color 0.2s ease;
+
+                    &:hover {
+                        color: $accent-warm;
                     }
                 }
             }
         }
-        .navActions{
-            display:flex;
+
+        .navActions {
+            display: flex;
             flex-direction: row;
-            gap: 40px;
-            
-            a{
+            gap: 16px;
+
+            a {
                 display: flex;
                 text-decoration: none;
-                color: #fff;
-                font-weight: bold;
+                color: $text-dark;
+                font-weight: 600;
                 height: 40px;
                 width: 100px;
                 align-items: center;
                 justify-content: center;
-                border-radius: 12px;
-                background : rgba(255, 255, 255, 0.1);
-                &:hover{
-                    color: #f0a500;
+                border-radius: 20px;
+                background: $accent-warm;
+                color: #fff;
+                transition: background 0.2s ease, transform 0.15s ease;
+
+                &:hover {
+                    background: darken($accent-warm, 8%);
+                    transform: translateY(-1px);
                 }
             }
-           
         }
-        .searchContainer{
+
+        .searchContainer {
             position: relative;
             display: flex;
             flex-direction: row;
             gap: 10px;
             align-items: center;
         }
-        .searchInput{
-            padding: 10px 100px;
-            border-radius: 12px;
-            border: none;
+
+        .searchInput {
+            padding: 10px 100px 10px 16px;
+            border-radius: 20px;
+            border: 1px solid $border-color;
             outline: none;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: $input-bg;
+            color: $text-dark;
+
+            &::placeholder {
+                color: $text-muted;
+            }
+
+            &:focus {
+                border-color: $accent-warm;
+                background-color: #fff;
+            }
         }
-        .searchButton{
+
+        .searchButton {
             position: absolute;
-            right: 0;
-            padding: 10px 10px;
-            border-radius: 12px;
+            right: 4px;
+            padding: 8px 14px;
+            border-radius: 16px;
             border: none;
             color: #fff;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
-            background-color: rgba(255, 255, 255, 0.0);
-            
-            &:hover{
-                background-color: rgba(255, 255, 255, 0.1);
+            background-color: $accent-warm;
+            transition: background 0.2s ease;
+
+            &:hover {
+                background-color: darken($accent-warm, 8%);
             }
         }
     }

@@ -6,6 +6,7 @@ import Menupage from "../pages/MenuPage";
 import Contactpage from "../pages/Contactpage";
 import Orderpage from "../pages/Orderspage";
 import BasketPage from "../pages/Basketpage/BasketPage";
+import RestaurantMenuPage from '../pages/RestaurantMenuPage/RestaurantMenuPage.jsx';
 
 const routes = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const routes = createBrowserRouter([
       {
         path: "basket",
         element: <BasketPage />,
+      },
+      {
+        path: "/restaurant/:id",
+        element: <RestaurantMenuPage />,
       }
     ],
   },

@@ -1,13 +1,15 @@
-$bg-dark: #0d0f1a;
-$card-bg: #161927;
-$text-white: #ffffff;
-$text-gray: #9a9ea8;
-$orange: #ff7a3d;
-$purple: #7c5cff;
-$radius: 16px;
+$bg-page: #fdf8f3;
+$card-bg: #ffffff;
+$border-color: #f0e4d6;
+$text-dark: #4a3f35;
+$text-muted: #a89a8a;
+$accent-warm: #e0955b;
+$accent-warm-light: #f5ddc8;
+$badge-purple: #9b8bb4;
+$radius: 20px;
 
 .page {
-  background: $bg-dark;
+  background: $bg-page;
   padding: 32px;
   min-height: 100vh;
 }
@@ -15,12 +17,11 @@ $radius: 16px;
 .products-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 24px;
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
   }
-
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
   }
@@ -28,19 +29,23 @@ $radius: 16px;
 
 .product-card {
   background: $card-bg;
+  border: 1px solid $border-color;
   border-radius: $radius;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 12px rgba(224, 149, 91, 0.08);
 
   &:hover {
     transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(224, 149, 91, 0.15);
   }
 }
 
 .image-wrapper {
+  position: relative;
   width: 100%;
-  height: 190px;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
 }
 
@@ -48,6 +53,30 @@ $radius: 16px;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.basket-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: $accent-warm;
+  font-size: 16px;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s ease, transform 0.15s ease;
+
+  &:hover {
+    background: $accent-warm-light;
+    transform: scale(1.08);
+  }
 }
 
 .product-info {
@@ -62,18 +91,18 @@ $radius: 16px;
 }
 
 .product-name {
-  color: $text-white;
+  color: $text-dark;
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0;
 }
 
 .badge {
-  background: rgba($purple, 0.2);
-  color: $purple;
+  background: rgba($badge-purple, 0.15);
+  color: $badge-purple;
   font-size: 11px;
   font-weight: 700;
-  padding: 2px 6px;
+  padding: 2px 8px;
   border-radius: 6px;
 }
 
@@ -82,16 +111,12 @@ $radius: 16px;
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  color: $text-gray;
+  color: $text-muted;
   margin-bottom: 6px;
 
-  .rating {
-    color: $text-gray;
-  }
-
   .delivery {
-    color: $purple;
-    font-weight: 500;
+    color: $accent-warm;
+    font-weight: 600;
   }
 }
 
@@ -100,52 +125,35 @@ $radius: 16px;
   align-items: center;
   gap: 8px;
   font-size: 13px;
+  flex-wrap: wrap;
 
   .open-time {
-    color: $orange;
+    color: $accent-warm;
     font-weight: 500;
   }
 
   .schedule {
-    color: $text-gray;
+    color: $text-muted;
   }
 }
 
 .dot {
-  color: $text-gray;
+  color: $border-color;
 }
 
 .order-button {
-  background: $orange;
-  color: $text-white;
+  margin-left: auto;
+  background: $accent-warm;
+  color: #fff;
   border: none;
-  padding: 8px 16px;
-  border-radius: $radius;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s ease;
-  margin-left : 20px;
-
-  &:hover {
-    background: #FF570A;
-  }
-}
-.basket-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  background: $purple;
-  color: $text-white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: $radius;
-  font-size: 14px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s ease;
 
   &:hover {
-    background: #5A3DFF;
+    background: darken($accent-warm, 8%);
   }
 }
