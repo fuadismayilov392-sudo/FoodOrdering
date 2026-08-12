@@ -7,6 +7,7 @@ import Contactpage from "../pages/Contactpage";
 import Orderpage from "../pages/Orderspage";
 import BasketPage from "../pages/Basketpage/BasketPage";
 import RestaurantMenuPage from '../pages/RestaurantMenuPage/RestaurantMenuPage.jsx';
+import SearchResults from "../pages/SearchResults/SearchResults.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const routes = createBrowserRouter([
       {
         path: "/restaurant/:id",
         element: <RestaurantMenuPage />,
+      },
+      {
+        path: "search",
+        element: <SearchResults/>
       }
     ],
   },
