@@ -40,6 +40,7 @@ function Navbar() {
 
         <div className={styles.navActions}>
           <Link to="/basket">🛒basket</Link>
+          <Link to = "/register">Sign up</Link>
           <Link to="/login" className={styles.btn}><LoginIcon/>Login</Link>
         </div>
       </nav>

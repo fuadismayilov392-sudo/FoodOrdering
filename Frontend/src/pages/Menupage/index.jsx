@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import {useNavigate} from 'react-router-dom'
 import styles from './MenuPage.module.scss'
-
+import Navbar from '../../layouts/header'
 
 
 function Menupage() {
@@ -27,14 +27,17 @@ function Menupage() {
 
 
   return (
+    <>
+    <Navbar/>
     <div className = {styles.page}>
+      
       <div className = {styles['restaurants-grid']}>
         {restaurants.map((restaurant) => (
           <div className = {styles["restaurant-card"]} key={restaurant._id} 
           onClick={() => navigate(`/restaurant/${restaurant._id}`)}>
             <div className = {styles["image-wrapper"]}>
               <img 
-                src = {restaurant.logo}
+                src = {restaurant.logo || "http://localhost:5000/uploads/1786832214949-images.webp"}
                 alt = {restaurant.CompanyName}
                 className = {styles["restaurant-image"]}/>
                 </div>
@@ -50,6 +53,7 @@ function Menupage() {
         ))}
     </div>
     </div>
+    </>
   )
 }
 

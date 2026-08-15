@@ -30,7 +30,7 @@ const productController = {
     await newProduct.save();
     res.status(201).json(newProduct);
   } catch (error) {
-  console.error('Error creating restaurant:', error);   // BUNU ƏLAVƏ ET
+  console.error('Error creating restaurant:', error);  
   res.status(500).json({ error: 'Internal Server Error' });
 }
 },

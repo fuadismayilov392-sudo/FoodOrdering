@@ -36,7 +36,7 @@ function RestaurantMenuPage() {
         <div className = {styles.page}>
             {restaurant && (
                 <div className = {styles.header}>
-                    <img src = {restaurant.logo || 'https://via.placeholder.com/300'} alt = {restaurant.CompanyName} className = {styles.logo}/>
+                    <img src = {restaurant.logo || "http://localhost:5000/uploads/1786832214949-images.webp"} alt = {restaurant.CompanyName} className = {styles.logo}/>
                     <div>
                         <h1>{restaurant.CompanyName}</h1>
                          <p>Açılır: {restaurant.openTime} · 😊 {restaurant.rating}</p>

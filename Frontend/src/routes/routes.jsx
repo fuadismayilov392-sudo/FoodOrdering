@@ -8,6 +8,9 @@ import Orderpage from "../pages/Orderspage";
 import BasketPage from "../pages/Basketpage/BasketPage";
 import RestaurantMenuPage from '../pages/RestaurantMenuPage/RestaurantMenuPage.jsx';
 import SearchResults from "../pages/SearchResults/SearchResults.jsx";
+import Login from "../pages/Login/Login.jsx";
+import Register from "../pages/Register/Register.jsx";
+import UploadImage from '../pages/UploadImage/UploadImage.jsx';
 
 const routes = createBrowserRouter([
   {
@@ -35,12 +38,24 @@ const routes = createBrowserRouter([
         element: <BasketPage />,
       },
       {
-        path: "/restaurant/:id",
+        path: "restaurant/:id",
         element: <RestaurantMenuPage />,
       },
       {
         path: "search",
         element: <SearchResults/>
+      },
+      {
+        path: "login",
+        element: <Login/>
+      },
+      {
+        path: "register",
+        element:<Register/>
+      },
+      {
+        path: "upload-image",
+        element: <UploadImage/>
       }
     ],
   },

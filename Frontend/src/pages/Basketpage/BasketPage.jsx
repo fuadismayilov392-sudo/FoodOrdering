@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { DataContext } from '../../Context/DataContext.jsx';
 import { Trash2, Minus, Plus, ShoppingBag } from 'lucide-react';
 import styles from './BasketPage.module.scss';
-import Navbar from '../../layouts/header.jsx';
+import Navbar from '../../layouts/header'
 
 function BasketPage() {
   const { basket, removeFromBasket, updateQuantity } = useContext(DataContext);
@@ -11,16 +11,19 @@ function BasketPage() {
 
   if (basket.length === 0) {
     return (
+      <>
+      <Navbar/>
       <div className={styles.emptyState}>
         <ShoppingBag size={48} />
         <p>Səbətiniz boşdur</p>
       </div>
+      </>
     );
   }
 
   return (
     <>
-    <Navbar />
+    <Navbar/>
     
     <div className={styles.basketPage}>
       <h1 className={styles.title}>Səbətim</h1>

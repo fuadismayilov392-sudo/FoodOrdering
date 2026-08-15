@@ -2,25 +2,34 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
+const path = require('path');
 const mongoose = require('mongoose');
 const productRouter = require('./routes/products.router');
 const restaurantRouter = require('./routes/restaurant.router');
 const authRouter = require('./routes/auth.router');
 
+const uploadRouter = require('./routes/upload.router');
+
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT;
-app.use('/auth', authRouter);
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // şəkilləri "göstərmək" üçün
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+const port = process.env.PORT;
+app.use('/auth', authRouter);
 
-// Routes — HAMISI middleware-lərdən SONRA
+app.use('/upload', uploadRouter);
+
+
+
+
+// Routesler mildvarelerden sonra olur
 app.use(productRouter);
 app.use('/restaurants', restaurantRouter);
 
-// 404 handler
+
 app.use((req, res) => {
   res.status(404).json({ error: 'Not Found' });
 });
