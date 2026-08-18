@@ -23,10 +23,21 @@ const productController = {
   }
 },
 
+getByCategory: async (req, res) => {
+  try {
+    const { category } = req.params;
+    const products = await Product.find({ category });
+    res.json(products);
+  } catch (error) {
+    console.error('Error fetching products by category:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+},
+
    post: async (req, res) => {
   try {
-    const { FoodName, Price, imageUrl, description, restaurantId } = req.body;
-    const newProduct = new Product({ FoodName, Price, imageUrl, description, restaurantId });
+    const { FoodName, Price, imageUrl, description,category, restaurantId } = req.body;
+    const newProduct = new Product({ FoodName, Price, imageUrl, description,category, restaurantId });
     await newProduct.save();
     res.status(201).json(newProduct);
   } catch (error) {

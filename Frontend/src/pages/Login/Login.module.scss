@@ -1,0 +1,236 @@
+$ink: #3d3027;
+$muted: #786b60;
+$cream: #fffaf5;
+$orange: #db7440;
+
+.loginPage {
+    display: grid;
+    grid-template-columns: minmax(300px, 46%) 1fr;
+    min-height: calc(100vh - 69px);
+    background: $cream;
+    color: $ink;
+    font-family: Arial, sans-serif;
+}
+
+.intro {
+    position: relative;
+    display: flex;
+    min-height: 600px;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 44px clamp(32px, 7vw, 110px);
+    color: #fff;
+    background: linear-gradient(145deg, #542d20 0%, #a84d2e 55%, #e78448 130%);
+}
+
+.intro::before,
+.intro::after {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 50%;
+    content: '';
+}
+
+.intro::before {
+    width: 440px;
+    height: 440px;
+    right: -215px;
+    top: -130px;
+}
+
+.intro::after {
+    width: 330px;
+    height: 330px;
+    left: -190px;
+    bottom: -180px;
+}
+
+.brand,
+.introContent,
+.features {
+    position: relative;
+}
+
+.brand {
+    color: #fff;
+    font-size: 27px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.brand span {
+    color: #ffc28b;
+}
+
+.introContent {
+    max-width: 490px;
+}
+
+.eyebrow {
+    margin-bottom: 18px;
+    color: #ffd0a9;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.introContent h1 {
+    margin: 0 0 20px;
+    font-family: Georgia, serif;
+    font-size: clamp(38px, 4vw, 60px);
+    line-height: 1.06;
+}
+
+.introContent p:last-child {
+    max-width: 410px;
+    margin: 0;
+    color: #ffece0;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    color: #fff0e6;
+    font-size: 14px;
+}
+
+.formSection {
+    display: grid;
+    place-items: center;
+    padding: 48px 28px;
+}
+
+.formCard {
+    width: min(100%, 420px);
+}
+
+.heading {
+    margin-bottom: 31px;
+}
+
+.heading p {
+    margin: 0 0 12px;
+    color: $orange;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .13em;
+}
+
+.heading h2 {
+    margin: 0 0 9px;
+    font-family: Georgia, serif;
+    font-size: 36px;
+}
+
+.heading span {
+    color: $muted;
+    font-size: 15px;
+}
+
+.formCard label {
+    display: block;
+    margin: 19px 0 8px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.formCard input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid #e4d7ca;
+    border-radius: 10px;
+    outline: none;
+    background: #fff;
+    color: $ink;
+    font-size: 15px;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.formCard input::placeholder {
+    color: #ab9e93;
+}
+
+.formCard input:focus {
+    border-color: $orange;
+    box-shadow: 0 0 0 3px rgba($orange, .13);
+}
+
+.formCard button {
+    width: 100%;
+    margin-top: 29px;
+    padding: 15px;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    background: $orange;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
+    transition: transform .2s, background .2s;
+}
+
+.formCard button:hover:not(:disabled) {
+    background: #c95f30;
+    transform: translateY(-2px);
+}
+
+.formCard button:disabled {
+    cursor: wait;
+    opacity: .7;
+}
+
+.error {
+    margin: 0 0 18px;
+    padding: 11px 13px;
+    border-radius: 8px;
+    background: #fff0ef;
+    color: #b52f27;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.loginPrompt {
+    margin: 24px 0 0;
+    color: $muted;
+    text-align: center;
+    font-size: 14px;
+}
+
+.loginPrompt a {
+    color: $orange;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+@media (max-width: 760px) {
+    .loginPage {
+        grid-template-columns: 1fr;
+    }
+
+    .intro {
+        min-height: 330px;
+        padding: 30px;
+    }
+
+    .introContent h1 {
+        font-size: 36px;
+    }
+
+    .introContent p:last-child {
+        font-size: 15px;
+    }
+
+    .features {
+        display: none;
+    }
+
+    .formSection {
+        padding: 42px 24px;
+    }
+}

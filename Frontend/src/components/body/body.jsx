@@ -29,14 +29,14 @@ function Body() {
     <div className={styles.page}>
       <div className={styles['products-grid']}>
         {products.map((product) => (
-          <div className={styles['product-card']} key={product._id}>
+          <div className={styles['product-card']} key={product._id} onClick={() => navigate('/orders', { state: { food: product } })}>
             <div className={styles['image-wrapper']}>
               <img
                 src={product.imageUrl || 'https://via.placeholder.com/400x250'}
                 alt={product.FoodName}
                 className={styles['product-image']}
               />
-              <button className={styles['basket-button']} onClick={() => addToBasket(product)}>
+              <button className={styles['basket-button']} onClick={(event) => { event.stopPropagation(); addToBasket(product); }}>
                 🛒
               </button>
             </div>

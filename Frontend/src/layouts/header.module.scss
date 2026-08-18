@@ -9,6 +9,9 @@ $input-bg: #f7efe4;
     background-color: $header-bg;
     border-bottom: 1px solid $border-color;
 
+
+    
+
     .nav {
         display: flex;
         flex-direction: row;
@@ -36,6 +39,40 @@ $input-bg: #f7efe4;
                     }
                 }
             }
+        }
+
+        .logo {
+            a {
+                display: inline-flex;
+                align-items: center;
+                gap: 9px;
+                color: $text-dark;
+                font-family: Georgia, serif;
+                font-size: 25px;
+                font-weight: 800;
+                letter-spacing: -1px;
+                text-decoration: none;
+                transition: transform .2s ease;
+
+                &:hover { transform: translateY(-1px); }
+            }
+
+            .logoMark {
+                display: grid;
+                width: 34px;
+                height: 34px;
+                place-items: center;
+                border-radius: 11px 11px 11px 3px;
+                background: linear-gradient(135deg, lighten($accent-warm, 7%), $accent-warm);
+                box-shadow: 0 5px 12px rgba(224, 149, 91, .3);
+                color: #fff;
+                font-family: Arial, sans-serif;
+                font-size: 17px;
+                font-weight: 800;
+                letter-spacing: 0;
+            }
+
+            .logoDot { color: $accent-warm; }
         }
 
         .navActions {
@@ -70,6 +107,7 @@ $input-bg: #f7efe4;
             flex-direction: row;
             gap: 10px;
             align-items: center;
+            z-index: 5;
         }
 
         .searchInput {
@@ -106,5 +144,55 @@ $input-bg: #f7efe4;
                 background-color: darken($accent-warm, 8%);
             }
         }
+
+        .searchSuggestions {
+            position: absolute;
+            z-index: 10;
+            top: calc(100% + 9px);
+            left: 0;
+            width: 100%;
+            min-width: 255px;
+            overflow: hidden;
+            border: 1px solid $border-color;
+            border-radius: 13px;
+            background: #fff;
+            box-shadow: 0 12px 25px rgba(74, 63, 53, .15);
+
+            button {
+                display: flex;
+                width: 100%;
+                gap: 10px;
+                align-items: center;
+                border: 0;
+                border-bottom: 1px solid #f5ede5;
+                padding: 10px 12px;
+                cursor: pointer;
+                background: #fff;
+                color: $text-dark;
+                text-align: left;
+
+                &:hover { background: #fff7f0; }
+                &:last-child { border-bottom: 0; }
+
+                b, small { display: block; }
+                b { font-size: 13px; }
+                small { margin-top: 3px; color: $text-muted; font-size: 11px; }
+            }
+
+            p { margin: 0; padding: 15px; color: $text-muted; font-size: 13px; }
+        }
+
+        .suggestionIcon {
+            display: grid;
+            width: 32px;
+            height: 32px;
+            flex: 0 0 32px;
+            place-items: center;
+            border-radius: 9px;
+            background: #fff0e5;
+            font-size: 16px;
+        }
     }
 }
+
+

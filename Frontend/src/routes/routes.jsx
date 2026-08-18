@@ -11,6 +11,8 @@ import SearchResults from "../pages/SearchResults/SearchResults.jsx";
 import Login from "../pages/Login/Login.jsx";
 import Register from "../pages/Register/Register.jsx";
 import UploadImage from '../pages/UploadImage/UploadImage.jsx';
+import CategoryPage from '../pages/CategoryPage/CategoryPage.jsx';
+import AdminPage from '../pages/AdminPage/AdminPage.jsx';
 
 const routes = createBrowserRouter([
   {
@@ -56,7 +58,15 @@ const routes = createBrowserRouter([
       {
         path: "upload-image",
         element: <UploadImage/>
-      }
+      },
+      {
+        path: '/category/:category',
+        element: <CategoryPage />,
+      },
+      {
+        path: 'admin',
+        element: <AdminPage />,
+      },
     ],
   },
 ]);

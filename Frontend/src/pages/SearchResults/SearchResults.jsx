@@ -71,7 +71,7 @@ function SearchResults() {
           <h3>Yeməklər</h3>
           <div className={styles.foodsGrid}>
             {matchedFoods.map((f) => (
-              <div key={f._id} className={styles.foodCard}>
+              <div key={f._id} className={styles.foodCard} onClick={() => navigate('/orders', { state: { food: f } })}>
                 <img src={f.imageUrl} alt={f.FoodName} />
                 <h4>{f.FoodName}</h4>
                 <p>{f.Price} AZN</p>

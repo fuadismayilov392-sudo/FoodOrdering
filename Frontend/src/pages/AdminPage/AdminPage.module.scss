@@ -1,0 +1,309 @@
+$ink: #3d3027;
+$muted: #786b60;
+$orange: #db7440;
+$cream: #fffaf5;
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    min-height: 100vh;
+    background: $cream;
+    color: $ink;
+    font-family: Arial, sans-serif;
+}
+
+.sidebar {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    padding: 29px 18px;
+    background: #42281f;
+    color: #fff;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.brand>span:first-child {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    border-radius: 10px 10px 10px 3px;
+    background: $orange;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+.dot {
+    color: #ffb47c;
+}
+
+.adminLabel {
+    margin: 48px 12px 12px;
+    color: #d6a882;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .14em;
+}
+
+.sidebar button,
+.backLink {
+    border: 0;
+    padding: 13px 14px;
+    border-radius: 9px;
+    background: transparent;
+    color: #f7e7db;
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+    text-decoration: none;
+}
+
+.sidebar button:hover,
+.sidebar .active {
+    background: rgba(255, 255, 255, .12);
+    color: #fff;
+}
+
+.backLink {
+    margin-top: auto;
+    color: #f0b486;
+}
+
+.content {
+    padding: 42px clamp(22px, 5vw, 78px);
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.topbar p,
+.tableHeader p {
+    margin: 0 0 8px;
+    color: $orange;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .13em;
+}
+
+.topbar h1 {
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: clamp(28px, 4vw, 40px);
+}
+
+.refresh,
+.tableHeader a {
+    border: 1px solid #e5d4c5;
+    border-radius: 9px;
+    padding: 10px 14px;
+    background: #fff;
+    color: $ink;
+    cursor: pointer;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.refresh:hover {
+    border-color: $orange;
+    color: $orange;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin: 38px 0;
+}
+
+.stats article {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 19px;
+    border: 1px solid #ecdfd3;
+    border-radius: 15px;
+    background: #fff;
+}
+
+.stats article>span {
+    display: grid;
+    width: 43px;
+    height: 43px;
+    place-items: center;
+    border-radius: 12px;
+    background: #fff0e5;
+    font-size: 21px;
+}
+
+.stats b {
+    font-size: 23px;
+}
+
+.stats p {
+    margin: 3px 0 0;
+    color: $muted;
+    font-size: 13px;
+}
+
+.tableCard {
+    overflow: hidden;
+    border: 1px solid #ecdfd3;
+    border-radius: 16px;
+    background: #fff;
+}
+
+.tableHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 23px 25px;
+    border-bottom: 1px solid #ecdfd3;
+}
+
+.tableHeader h2 {
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: 23px;
+}
+
+.tableHeader a {
+    background: $orange;
+    border-color: $orange;
+    color: #fff;
+}
+
+.items {
+    padding: 4px 25px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0e7df;
+}
+
+.item:last-child {
+    border-bottom: 0;
+}
+
+.item img {
+    width: 49px;
+    height: 49px;
+    border-radius: 11px;
+    object-fit: cover;
+    background: #f3eae2;
+}
+
+.itemInfo {
+    display: grid;
+    gap: 6px;
+}
+
+.itemInfo b {
+    font-size: 14px;
+}
+
+.itemInfo span {
+    color: $muted;
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+.delete {
+    margin-left: auto;
+    border: 0;
+    border-radius: 8px;
+    padding: 8px 11px;
+    cursor: pointer;
+    background: #fff0ef;
+    color: #bc4139;
+    font-weight: 700;
+}
+
+.delete:hover {
+    background: #fbdedb;
+}
+
+.status,
+.error {
+    padding: 36px 25px;
+    color: $muted;
+}
+
+.error {
+    color: #bd3930;
+}
+
+@media (max-width: 760px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        min-height: auto;
+        padding: 17px 20px;
+    }
+
+    .adminLabel,
+    .backLink {
+        display: none;
+    }
+
+    .sidebar button {
+        display: inline-block;
+        width: auto;
+        margin: 16px 5px 0 0;
+    }
+
+    .content {
+        padding: 32px 20px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+        margin: 28px 0;
+    }
+
+    .tableHeader {
+        padding: 20px;
+    }
+
+    .items {
+        padding: 4px 20px;
+    }
+
+    .item {
+        align-items: flex-start;
+    }
+
+    .itemInfo {
+        padding-top: 3px;
+    }
+
+    .itemInfo span {
+        line-height: 1.4;
+    }
+
+    .delete {
+        padding: 7px;
+    }
+}

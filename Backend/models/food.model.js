@@ -5,6 +5,11 @@ const foodSchema = new mongoose.Schema({
     Price: Number,
     imageUrl: String,
     description: String,
+    category: {
+        type: String,
+        enum: ['soup', 'salad', 'maincourse', 'deserts', 'drinks', 'snacks'],
+        required: true,
+    },
     restaurantId:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Restaurant",

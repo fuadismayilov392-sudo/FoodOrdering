@@ -6,7 +6,6 @@ function Heroreciepe() {
     <div className={styles.heroreciepe}>
     
     <button className={styles.heroreciepe__button}>Order Now</button>
-    <button className={styles.heroreciepe__wishlist}>Add to Wishlist</button>
 
     </div>
   )
