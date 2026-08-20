@@ -13,6 +13,7 @@ import Register from "../pages/Register/Register.jsx";
 import UploadImage from '../pages/UploadImage/UploadImage.jsx';
 import CategoryPage from '../pages/CategoryPage/CategoryPage.jsx';
 import AdminPage from '../pages/AdminPage/AdminPage.jsx';
+import AddProduct from '../pages/AddProduct/AddProduct.jsx';
 
 const routes = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const routes = createBrowserRouter([
       {
         path: 'admin',
         element: <AdminPage />,
+      },
+      {
+        path: 'admin/products/add',
+        element: <AddProduct />,
       },
     ],
   },

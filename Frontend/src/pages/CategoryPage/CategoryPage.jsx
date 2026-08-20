@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import styles from './CategoryPage.module.scss'
 import Navbar from '../../layouts/header'
+import Footer from '../../layouts/footer'
 
 function CategoryPage() {
   const { category } = useParams();
@@ -40,6 +41,7 @@ function CategoryPage() {
         ))}
       </div>
     </div>
+    <Footer />
     </>
     );
 }

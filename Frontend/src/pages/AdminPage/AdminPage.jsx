@@ -64,7 +64,7 @@ function AdminPage() {
           <article><span>🏷️</span><div><b>{new Set(products.map((product) => product.category).filter(Boolean)).size}</b><p>Kateqoriya</p></div></article>
         </section>
         <section className={styles.tableCard}>
-          <div className={styles.tableHeader}><div><p>{activeTab === 'restaurants' ? 'RESTORANLAR' : 'MƏHSULLAR'}</p><h2>{activeTab === 'restaurants' ? 'Restoran idarəetməsi' : 'Məhsul idarəetməsi'}</h2></div><Link to="/upload-image">+ Şəkil yüklə</Link></div>
+          <div className={styles.tableHeader}><div><p>{activeTab === 'restaurants' ? 'RESTORANLAR' : 'MƏHSULLAR'}</p><h2>{activeTab === 'restaurants' ? 'Restoran idarəetməsi' : 'Məhsul idarəetməsi'}</h2></div>{activeTab === 'products' ? <Link to="/admin/products/add">+ Məhsul əlavə et</Link> : <Link to="/upload-image">+ Şəkil yüklə</Link>}</div>
           {loading ? <p className={styles.status}>Yüklənir...</p> : error ? <p className={styles.error}>{error}</p> : (
             <div className={styles.items}>
               {items.length === 0 ? <p className={styles.status}>Hələ məlumat yoxdur.</p> : items.map((item) => (

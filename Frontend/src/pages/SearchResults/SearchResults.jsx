@@ -2,6 +2,8 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import styles from './SearchResults.module.scss'
+import Navbar from '../../layouts/header'
+import Footer from '../../layouts/footer'
 
 function SearchResults() {
   const [searchParams] = useSearchParams();
@@ -43,6 +45,8 @@ function SearchResults() {
   const hasResults = matchedRestaurants.length > 0 || matchedFoods.length > 0;
 
   return (
+    <>
+      <Navbar />
     <div className={styles.page}>
       <h2 className={styles.title}>"{query}" üçün nəticələr</h2>
 
@@ -81,6 +85,8 @@ function SearchResults() {
         </div>
       )}
     </div>
+    <Footer />
+    </>
   );
 }
 

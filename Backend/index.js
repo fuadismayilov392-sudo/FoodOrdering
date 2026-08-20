@@ -25,7 +25,6 @@ app.use('/upload', uploadRouter);
 
 
 
-// Routesler mildvarelerden sonra olur
 app.use(productRouter);
 app.use('/restaurants', restaurantRouter);
 

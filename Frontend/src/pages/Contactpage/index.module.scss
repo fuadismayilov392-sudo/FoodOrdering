@@ -3,8 +3,191 @@ $muted: #786b60;
 $cream: #fffaf5;
 $orange: #db7440;
 
-.page { min-height: calc(100vh - 69px); padding: 64px clamp(20px, 7vw, 120px) 80px; background: $cream; color: $ink; font-family: Arial, sans-serif; }
-.hero { max-width: 680px; margin-bottom: 45px; }.hero p { margin: 0 0 13px; color: $orange; font-size: 11px; font-weight: 800; letter-spacing: .14em; }.hero h1 { margin: 0 0 15px; font-family: Georgia, serif; font-size: clamp(35px, 5vw, 58px); line-height: 1.05; }.hero span { color: $muted; font-size: 16px; line-height: 1.65; }
-.content { display: grid; grid-template-columns: minmax(250px, .78fr) minmax(350px, 1fr); max-width: 1080px; overflow: hidden; border: 1px solid #eadccc; border-radius: 22px; background: #fff; box-shadow: 0 12px 35px rgba(86,50,29,.08); }.infoCard { padding: 40px; background: linear-gradient(145deg, #5d3022, #b95936); color: #fff; }.infoCard h2, .form h2 { margin: 0 0 12px; font-family: Georgia, serif; font-size: 28px; }.infoCard > p { margin: 0; color: #ffddc7; line-height: 1.55; }.infoList { display: grid; gap: 23px; margin-top: 47px; }.infoList div { display: flex; align-items: center; gap: 12px; }.infoList span { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 10px; background: rgba(255,255,255,.14); color: #ffd1ad; }.infoList p { margin: 0; color: #fff2e8; font-size: 14px; line-height: 1.5; }.infoList b { display: block; color: #fff; font-size: 13px; }
-.form { padding: 40px; }.form label { display: block; margin: 20px 0 8px; font-size: 13px; font-weight: 700; }.form input, .form textarea { box-sizing: border-box; width: 100%; border: 1px solid #e4d7ca; border-radius: 10px; outline: none; padding: 13px 14px; color: $ink; font: inherit; transition: border-color .2s, box-shadow .2s; }.form textarea { min-height: 108px; resize: vertical; }.form input:focus, .form textarea:focus { border-color: $orange; box-shadow: 0 0 0 3px rgba($orange,.13); }.form button { width: 100%; margin-top: 25px; padding: 14px; border: 0; border-radius: 10px; cursor: pointer; background: $orange; color: #fff; font-size: 15px; font-weight: 800; transition: background .2s, transform .2s; }.form button:hover { background: #c95f30; transform: translateY(-2px); }.form button span { margin-left: 7px; font-size: 18px; }.success { margin: 16px 0 0; color: #38834f; text-align: center; font-size: 14px; font-weight: 600; }
-@media (max-width: 720px) { .page { padding: 45px 20px 60px; }.content { grid-template-columns: 1fr; }.infoCard, .form { padding: 30px 24px; }.infoList { margin-top: 28px; }.hero { margin-bottom: 32px; } }
+.page {
+    min-height: calc(100vh - 69px);
+    padding: 64px clamp(20px, 7vw, 120px) 80px;
+    background: $cream;
+    color: $ink;
+    font-family: Arial, sans-serif;
+}
+
+.hero {
+    max-width: 680px;
+    margin-bottom: 45px;
+}
+
+.hero p {
+    margin: 0 0 13px;
+    color: $orange;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .14em;
+}
+
+.hero h1 {
+    margin: 0 0 15px;
+    font-family: Georgia, serif;
+    font-size: clamp(35px, 5vw, 58px);
+    line-height: 1.05;
+}
+
+.hero span {
+    color: $muted;
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(250px, .78fr) minmax(350px, 1fr);
+    max-width: 1080px;
+    overflow: hidden;
+    border: 1px solid #eadccc;
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 12px 35px rgba(86, 50, 29, .08);
+}
+
+.infoCard {
+    padding: 40px;
+    background: linear-gradient(145deg, #5d3022, #b95936);
+    color: #fff;
+}
+
+.infoCard h2,
+.form h2 {
+    margin: 0 0 12px;
+    font-family: Georgia, serif;
+    font-size: 28px;
+}
+
+.infoCard>p {
+    margin: 0;
+    color: #ffddc7;
+    line-height: 1.55;
+}
+
+.infoList {
+    display: grid;
+    gap: 23px;
+    margin-top: 47px;
+}
+
+.infoList div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.infoList span {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .14);
+    color: #ffd1ad;
+}
+
+.infoList p {
+    margin: 0;
+    color: #fff2e8;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.infoList b {
+    display: block;
+    color: #fff;
+    font-size: 13px;
+}
+
+.form {
+    padding: 40px;
+}
+
+.form label {
+    display: block;
+    margin: 20px 0 8px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form input,
+.form textarea {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #e4d7ca;
+    border-radius: 10px;
+    outline: none;
+    padding: 13px 14px;
+    color: $ink;
+    font: inherit;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.form textarea {
+    min-height: 108px;
+    resize: vertical;
+}
+
+.form input:focus,
+.form textarea:focus {
+    border-color: $orange;
+    box-shadow: 0 0 0 3px rgba($orange, .13);
+}
+
+.form button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    background: $orange;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
+    transition: background .2s, transform .2s;
+}
+
+.form button:hover {
+    background: #c95f30;
+    transform: translateY(-2px);
+}
+
+.form button span {
+    margin-left: 7px;
+    font-size: 18px;
+}
+
+.success {
+    margin: 16px 0 0;
+    color: #38834f;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@media (max-width: 720px) {
+    .page {
+        padding: 45px 20px 60px;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .infoCard,
+    .form {
+        padding: 30px 24px;
+    }
+
+    .infoList {
+        margin-top: 28px;
+    }
+
+    .hero {
+        margin-bottom: 32px;
+    }
+}

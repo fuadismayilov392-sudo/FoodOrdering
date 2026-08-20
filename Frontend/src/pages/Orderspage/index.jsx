@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Navbar from '../../layouts/header';
+import Footer from '../../layouts/footer';
 import styles from './index.module.scss';
 
 function Orderpage() {
@@ -9,7 +10,7 @@ function Orderpage() {
   const [isOrdered, setIsOrdered] = useState(false);
   const price = Number(food?.Price ?? food?.price ?? 0);
 
-  if (!food) return <><Navbar /><main className={styles.empty}><span>🍽️</span><h1>Sifariş üçün yemək seçin</h1><p>Menudan bəyəndiyiniz yeməyin üzərinə klikləyin.</p><Link to="/menu">Menulara bax</Link></main></>;
+  if (!food) return <><Navbar /><main className={styles.empty}><span>🍽️</span><h1>Sifariş üçün yemək seçin</h1><p>Menudan bəyəndiyiniz yeməyin üzərinə klikləyin.</p><Link to="/menu">Menulara bax</Link></main><Footer /></>;
 
   return <><Navbar /><main className={styles.page}>
     <Link to={-1} className={styles.back}>← Geri qayıt</Link>
@@ -24,7 +25,7 @@ function Orderpage() {
       </form></section>
       <aside className={styles.summary}><p>SİFARİŞ XÜLASƏSİ</p><div className={styles.food}><img src={food.imageUrl || 'https://via.placeholder.com/100'} alt={food.FoodName} /><div><h2>{food.FoodName}</h2><span>{food.category || 'Yemək'}</span></div></div><div className={styles.line}><span>Yeməyin qiyməti</span><b>{price.toFixed(2)} AZN</b></div><div className={styles.line}><span>Çatdırılma</span><b>Pulsuz</b></div><div className={styles.total}><span>Cəmi</span><b>{price.toFixed(2)} AZN</b></div></aside>
     </div>
-  </main></>;
+  </main><Footer /></>;
 }
 
 export default Orderpage;

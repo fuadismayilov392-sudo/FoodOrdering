@@ -3,6 +3,8 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { DataContext } from '../../Context/DataContext.jsx';
 import styles from './RestaurantMenuPage.module.scss';
+import Navbar from '../../layouts/header';
+import Footer from '../../layouts/footer';
 
 function RestaurantMenuPage() {
   const { id } = useParams();
@@ -21,7 +23,7 @@ function RestaurantMenuPage() {
 
   if (loading) return <p>Yüklənir...</p>;
 
-  return <div className={styles.page}>
+  return <><Navbar /><div className={styles.page}>
     <button type="button" className={styles.backButton} onClick={() => window.history.length > 1 ? navigate(-1) : navigate('/')} aria-label="Əvvəlki səhifəyə qayıt"><span aria-hidden="true">←</span> Geri</button>
     {restaurant && <div className={styles.header}><img src={restaurant.logo || 'http://localhost:5000/uploads/1786832214949-images.webp'} alt={restaurant.CompanyName} className={styles.logo}/><div><h1>{restaurant.CompanyName}</h1><p>Açılır: {restaurant.openTime} · 😊 {restaurant.rating}</p></div></div>}
     <div className={styles['foods-grid']}>
@@ -30,7 +32,7 @@ function RestaurantMenuPage() {
         <div className={styles['food-info']}><h4>{food.FoodName}</h4><p className={styles.description}>{food.description}</p><div className={styles.footer}><span className={styles.price}>{Number(food.Price ?? food.price ?? 0).toFixed(2)} AZN</span><button className={styles['add-btn']} onClick={(event) => { event.stopPropagation(); addToBasket(food); }}>Səbətə at</button></div></div>
       </div>)}
     </div>
-  </div>;
+  </div><Footer /></>;
 }
 
 export default RestaurantMenuPage;

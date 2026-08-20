@@ -3,12 +3,15 @@ import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./header.module.scss";
 import LoginIcon from '@mui/icons-material/Login';
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import PersonAddAlt1OutlinedIcon from '@mui/icons-material/PersonAddAlt1Outlined';
 
 function Navbar() {
   const [searchTerm, setSearchTerm] = useState('');
   const [restaurants, setRestaurants] = useState([]);
   const [products, setProducts] = useState([]);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -42,23 +45,30 @@ function Navbar() {
     else navigate(`/search?q=${encodeURIComponent(suggestion.FoodName)}`);
   };
 
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
         <div className={styles.logo}>
-          <Link to="/" aria-label="Foodie ana səhifə">
+          <Link to="/" aria-label="Foodie ana səhifə" onClick={closeMenu}>
             <span className={styles.logoMark} aria-hidden="true">F</span>
             <span>Foodie<span className={styles.logoDot}>.</span></span>
           </Link>
         </div>
-        <ul className={styles.navLinks}>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/menu">Menu</Link></li>
-          <li><Link to="/orders">Orders</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
-        </ul>
+        <button className={styles.menuButton} type="button" aria-label="Menyunu aç" aria-expanded={isMenuOpen} onClick={() => setIsMenuOpen((isOpen) => !isOpen)}>
+          <span></span><span></span><span></span>
+        </button>
 
-        <form className={styles.searchContainer} onSubmit={handleSearch}>
+        <div className={`${styles.mobileMenu} ${isMenuOpen ? styles.mobileMenuOpen : ''}`}>
+          <ul className={styles.navLinks}>
+            <li><Link to="/" onClick={closeMenu}>Home</Link></li>
+            <li><Link to="/menu" onClick={closeMenu}>Menu</Link></li>
+            <li><Link to="/orders" onClick={closeMenu}>Orders</Link></li>
+            <li><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
+          </ul>
+
+          <form className={styles.searchContainer} onSubmit={handleSearch}>
           <input
             type="text"
             placeholder="Search..."
@@ -79,12 +89,13 @@ function Navbar() {
               )) : <p>Uyğun nəticə tapılmadı</p>}
             </div>
           )}
-        </form>
+          </form>
 
-        <div className={styles.navActions}>
-          <Link to="/basket">🛒basket</Link>
-          <Link to = "/register">Sign up</Link>
-          <Link to="/login" className={styles.btn}><LoginIcon/>Login</Link>
+          <div className={styles.navActions}>
+            <Link to="/basket" className={styles.basketLink} onClick={closeMenu}><ShoppingBagOutlinedIcon/><span>Səbət</span></Link>
+            <Link to="/register" className={styles.registerLink} onClick={closeMenu}><PersonAddAlt1OutlinedIcon/><span>Qeydiyyat</span></Link>
+            <Link to="/login" className={styles.btn} onClick={closeMenu}><LoginIcon/>Daxil ol</Link>
+          </div>
         </div>
       </nav>
     </header>

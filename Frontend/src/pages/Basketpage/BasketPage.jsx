@@ -3,11 +3,12 @@ import { DataContext } from '../../Context/DataContext.jsx';
 import { Trash2, Minus, Plus, ShoppingBag } from 'lucide-react';
 import styles from './BasketPage.module.scss';
 import Navbar from '../../layouts/header'
+import Footer from '../../layouts/footer'
 
 function BasketPage() {
   const { basket, removeFromBasket, updateQuantity } = useContext(DataContext);
 
-  const total = basket.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const total = basket.reduce((sum, item) => sum + item.Price * item.quantity, 0);
 
   if (basket.length === 0) {
     return (
@@ -17,6 +18,7 @@ function BasketPage() {
         <ShoppingBag size={48} />
         <p>Səbətiniz boşdur</p>
       </div>
+      <Footer />
       </>
     );
   }
@@ -54,7 +56,7 @@ function BasketPage() {
             </div>
 
             <div className={styles.itemTotal}>
-              {(item.price * item.quantity).toFixed(2)} AZN
+              {(item.Price * item.quantity).toFixed(2)} AZN
             </div>
 
             <button
@@ -75,6 +77,7 @@ function BasketPage() {
         <button className={styles.checkoutBtn}>Sifarişi tamamla</button>
       </div>
     </div>
+    <Footer />
  </>
   );
 }

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import {useNavigate} from 'react-router-dom'
 import styles from './MenuPage.module.scss'
 import Navbar from '../../layouts/header'
+import Footer from '../../layouts/footer'
 
 
 function Menupage() {
@@ -53,6 +54,7 @@ function Menupage() {
         ))}
     </div>
     </div>
+    <Footer />
     </>
   )
 }

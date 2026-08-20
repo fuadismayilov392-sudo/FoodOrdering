@@ -48,7 +48,7 @@ function Body() {
               <div className={styles['meta-row']}>
                 <span className={styles.rating}>😊 {product.rating || '9.0'}</span>
                 <span className={styles.dot}>·</span>
-                <span className={styles.delivery}>🛵 {product.price} AZN</span>
+                <span className={styles.delivery}>🛵 {product.Price ?? product.price ?? '—'} AZN</span>
               </div>
               <div className={styles['time-row']}>
                 <span className={styles['open-time']}>Açılır: {product.openTime || '10:00'}</span>

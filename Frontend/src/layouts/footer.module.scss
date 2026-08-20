@@ -1,0 +1,163 @@
+$ink: #3d3027;
+$muted: #aa9d91;
+$orange: #e0955b;
+
+.footer {
+    padding: 54px clamp(20px, 7vw, 110px) 18px;
+    background: #38241d;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: minmax(230px, 1.25fr) 1fr;
+    gap: 70px;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding-bottom: 46px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font: 800 26px Georgia, serif;
+    text-decoration: none;
+}
+
+.brand>span {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border-radius: 11px 11px 11px 3px;
+    background: $orange;
+    font: 800 16px Arial, sans-serif;
+}
+
+.brand i {
+    color: #f4ad78;
+    font-style: normal;
+}
+
+.brandColumn p {
+    max-width: 300px;
+    margin: 17px 0;
+    color: $muted;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.socials {
+    display: flex;
+    gap: 9px;
+}
+
+.socials a {
+    display: grid;
+    width: 35px;
+    height: 35px;
+    place-items: center;
+    border: 1px solid #67463a;
+    border-radius: 50%;
+    color: #f4d5bd;
+    transition: color .2s, background .2s;
+}
+
+.socials a:hover {
+    background: $orange;
+    color: #fff;
+}
+
+.socials svg {
+    font-size: 18px;
+}
+
+.links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(130px, 1fr));
+    gap: 30px;
+}
+
+.links div {
+    display: grid;
+    align-content: start;
+    gap: 12px;
+}
+
+.links h3 {
+    margin: 0 0 5px;
+    color: #fff2e8;
+    font-size: 13px;
+}
+
+.links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: $muted;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color .2s;
+}
+
+.links a:hover {
+    color: #ffd2ad;
+}
+
+.links svg {
+    font-size: 15px;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding-top: 18px;
+    border-top: 1px solid #593a30;
+    color: #927e72;
+    font-size: 12px;
+}
+
+.bottom div {
+    display: flex;
+    gap: 18px;
+}
+
+.bottom a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.bottom a:hover {
+    color: #ffd2ad;
+}
+
+@media (max-width: 640px) {
+    .footer {
+        padding: 42px 20px 18px;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        padding-bottom: 34px;
+    }
+
+    .links {
+        gap: 18px;
+    }
+
+    .bottom {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .bottom div {
+        gap: 14px;
+    }
+}

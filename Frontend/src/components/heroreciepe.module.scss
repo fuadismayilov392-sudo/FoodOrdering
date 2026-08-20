@@ -2,37 +2,197 @@ $accent-warm: #e0955b;
 $text-dark: #4a3f35;
 
 .heroreciepe {
-    background-image: linear-gradient(180deg, rgba(74, 63, 53, 0.15) 0%, rgba(74, 63, 53, 0.55) 100%), url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60');
-    background-size: cover;
-    background-position: center;
-    height: 32vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
     position: relative;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: clamp(400px, 57vh, 585px);
+    overflow: hidden;
+    padding: 58px clamp(24px, 9vw, 140px);
     border-radius: 0 0 28px 28px;
+    background-image: linear-gradient(90deg, rgba(42, 29, 22, .89) 0%, rgba(42, 29, 22, .70) 42%, rgba(42, 29, 22, .17) 78%), url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1800&q=85');
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+}
 
-    .heroreciepe__button {
-        position: absolute;
-        bottom: 80px;
-        left: 10%;
-        padding: 10px 22px;
-        border-radius: 24px;
-        border: none;
-        color: #fff;
-        font-weight: 600;
-        font-size: 14px;
-        cursor: pointer;
-        background-color: $accent-warm;
-        transition: background 0.2s ease, transform 0.15s ease;
+.heroreciepe::after {
+    content: '';
+    position: absolute;
+    right: -80px;
+    bottom: -110px;
+    width: 290px;
+    height: 290px;
+    border: 1px solid rgba(255, 255, 255, .28);
+    border-radius: 50%;
+    box-shadow: 0 0 0 35px rgba(255, 255, 255, .08), 0 0 0 70px rgba(255, 255, 255, .05);
+}
 
-        &:hover {
-            background-color: darken($accent-warm, 8%);
-            transform: translateY(-2px);
-        }
+.content {
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
+}
+
+.eyebrow {
+    margin: 0 0 13px;
+    color: #ffd1b2;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .16em;
+}
+
+.content h1 {
+    max-width: 600px;
+    margin: 0;
+    font: 700 clamp(36px, 5vw, 64px)/1.05 Georgia, serif;
+    letter-spacing: -.035em;
+}
+
+.content h1 em {
+    color: #ffc196;
+    font-style: italic;
+}
+
+.description {
+    max-width: 515px;
+    margin: 20px 0 0;
+    color: #f5e8dd;
+    font-size: clamp(15px, 1.7vw, 17px);
+    line-height: 1.65;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.primaryAction,
+.secondaryAction {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform .2s ease, background .2s ease;
+}
+
+.primaryAction {
+    padding: 13px 18px 13px 21px;
+    background: $accent-warm;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .22);
+}
+
+.primaryAction svg {
+    font-size: 19px;
+}
+
+.primaryAction:hover {
+    background: darken($accent-warm, 8%);
+    transform: translateY(-2px);
+}
+
+.secondaryAction {
+    color: #fff;
+}
+
+.secondaryAction:hover {
+    color: #ffc196;
+}
+
+.delivery {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 31px;
+    color: #f7e9de;
+    font-size: 13px;
+}
+
+.delivery svg {
+    color: #ffc196;
+}
+
+.delivery b {
+    color: #fff;
+}
+
+.badge {
+    position: absolute;
+    z-index: 1;
+    right: clamp(30px, 10vw, 150px);
+    bottom: 62px;
+    display: grid;
+    width: 102px;
+    height: 102px;
+    place-content: center;
+    border: 1px solid rgba(255, 255, 255, .5);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .16);
+    backdrop-filter: blur(4px);
+    text-align: center;
+    transform: rotate(9deg);
+}
+
+.badge span {
+    font: 700 25px Georgia, serif;
+}
+
+.badge small {
+    margin-top: 2px;
+    font-size: 11px;
+}
+
+@media (max-width: 720px) {
+    .heroreciepe {
+        min-height: 480px;
+        padding: 52px 28px;
+        background-image: linear-gradient(90deg, rgba(42, 29, 22, .88), rgba(42, 29, 22, .52)), url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1000&q=85');
+        background-position: 59% center;
     }
 
+    .badge {
+        right: 25px;
+        bottom: 28px;
+        width: 80px;
+        height: 80px;
+    }
 
+    .badge span {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 440px) {
+    .heroreciepe {
+        min-height: 465px;
+        padding: 47px 20px;
+    }
+
+    .content h1 {
+        font-size: 35px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .actions {
+        gap: 14px;
+        margin-top: 25px;
+    }
+
+    .delivery {
+        margin-top: 24px;
+    }
+
+    .badge {
+        display: none;
+    }
 }

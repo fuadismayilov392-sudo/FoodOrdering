@@ -11,7 +11,6 @@ const productController = {
   }
 },
 
-    // YENİ — bunu əlavə et
     getByRestaurant: async (req, res) => {
   try {
     const { restaurantId } = req.params;

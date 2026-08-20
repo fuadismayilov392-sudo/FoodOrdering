@@ -13,6 +13,7 @@ $input-bg: #f7efe4;
     
 
     .nav {
+        position: relative;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -20,6 +21,8 @@ $input-bg: #f7efe4;
         width: 95%;
         padding: 14px 20px;
         margin: 0 auto;
+
+        .mobileMenu { display: contents; }
 
         .navLinks {
             display: flex;
@@ -86,18 +89,39 @@ $input-bg: #f7efe4;
                 color: $text-dark;
                 font-weight: 600;
                 height: 40px;
-                width: 100px;
+                padding: 0 14px;
                 align-items: center;
                 justify-content: center;
                 border-radius: 20px;
-                background: $accent-warm;
-                color: #fff;
                 transition: background 0.2s ease, transform 0.15s ease;
 
                 &:hover {
-                    background: darken($accent-warm, 8%);
+                    color: $accent-warm;
                     transform: translateY(-1px);
                 }
+            }
+
+            .basketLink {
+                gap: 7px;
+                border: 1px solid #eadaca;
+                background: #fff;
+                box-shadow: 0 3px 9px rgba(74, 63, 53, .05);
+
+                svg { font-size: 19px; color: $accent-warm; }
+                &:hover { border-color: $accent-warm; background: #fff8f2; }
+            }
+
+            .registerLink {
+                gap: 7px;
+                color: #7d5740;
+
+                svg { font-size: 19px; color: $accent-warm; }
+                &:hover { background: #fff1e5; }
+            }
+
+            .btn { gap: 6px; background: $accent-warm; color: #fff;
+                svg { font-size: 19px; }
+                &:hover { background: darken($accent-warm, 8%); color: #fff; }
             }
         }
 
@@ -192,6 +216,78 @@ $input-bg: #f7efe4;
             background: #fff0e5;
             font-size: 16px;
         }
+
+        .menuButton { display: none; }
+    }
+}
+
+@media (max-width: 1050px) {
+    .header .nav {
+        width: auto;
+        padding: 13px 20px;
+
+        .navLinks { gap: 13px; }
+        .navActions { gap: 3px;
+            a { padding: 0 9px; font-size: 13px; }
+        }
+        .searchInput { width: 170px; padding-right: 78px; }
+        .searchButton { padding: 8px 10px; font-size: 12px; }
+    }
+}
+
+@media (max-width: 800px) {
+    .header .nav {
+        min-height: 42px;
+        justify-content: space-between;
+
+        .menuButton {
+            display: grid;
+            width: 42px;
+            height: 42px;
+            gap: 5px;
+            place-content: center;
+            border: 1px solid $border-color;
+            border-radius: 10px;
+            background: #fff;
+            cursor: pointer;
+
+            span { display: block; width: 20px; height: 2px; border-radius: 2px; background: $text-dark; }
+        }
+
+        .mobileMenu {
+            display: none;
+            position: absolute;
+            z-index: 20;
+            top: calc(100% + 1px);
+            right: 0;
+            left: 0;
+            padding: 18px 20px 20px;
+            border-bottom: 1px solid $border-color;
+            background: $header-bg;
+            box-shadow: 0 15px 20px rgba(74, 63, 53, .10);
+        }
+
+        .mobileMenuOpen { display: grid; gap: 18px; }
+        .navLinks { display: grid; gap: 2px;
+            li a { display: block; padding: 11px 4px; }
+        }
+        .searchContainer { width: 100%; }
+        .searchInput { width: 100%; padding: 12px 88px 12px 15px; }
+        .searchButton { right: 4px; padding: 9px 14px; }
+        .searchSuggestions { min-width: 0; width: 100%; }
+        .navActions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+            a { width: auto; min-width: 0; padding: 0 6px; font-size: 12px; }
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    .header .nav {
+        padding: 11px 14px;
+        .logo a { font-size: 22px; }
+        .logo .logoMark { width: 31px; height: 31px; }
+        .mobileMenu { padding: 16px 14px 18px; }
+        .navActions { grid-template-columns: 1fr; }
     }
 }
 

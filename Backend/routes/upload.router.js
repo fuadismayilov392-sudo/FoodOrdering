@@ -3,7 +3,6 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 
-// Şəkillərin saxlanacağı yer və adlandırma qaydası
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'uploads/'); // Backend qovluğunda "uploads" folder-i

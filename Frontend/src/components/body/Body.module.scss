@@ -10,7 +10,7 @@ $radius: 20px;
 
 .page {
   background: $bg-page;
-  padding: 32px;
+  padding: 32px clamp(20px, 5vw, 80px) 72px;
   min-height: 100vh;
 }
 
@@ -18,12 +18,15 @@ $radius: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
+  max-width: 1240px;
+  margin: 0 auto;
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
   }
   @media (max-width: 600px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
   }
 }
 
@@ -53,7 +56,10 @@ $radius: 20px;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform .35s ease;
 }
+
+.product-card:hover .product-image { transform: scale(1.04); }
 
 .basket-button {
   position: absolute;
@@ -156,4 +162,9 @@ $radius: 20px;
   &:hover {
     background: orange
   }
+}
+
+@media (max-width: 440px) {
+  .page { padding: 24px 16px 54px; }
+  .products-grid { grid-template-columns: 1fr; }
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Navbar from '../../layouts/header';
+import Footer from '../../layouts/footer';
 import styles from './index.module.scss';
 
 function ContactPage() {
@@ -50,6 +51,7 @@ function ContactPage() {
           </form>
         </section>
       </main>
+      <Footer />
     </>
   );
 }

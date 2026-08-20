@@ -34,7 +34,6 @@ const restaurantController = {
 }
   },
 
-  // YENİ
   patch: async (req, res) => {
     try {
       const { id } = req.params;
@@ -48,7 +47,6 @@ const restaurantController = {
     }
   },
 
-  // YENİ
   delete: async (req, res) => {
     try {
       const { id } = req.params;
