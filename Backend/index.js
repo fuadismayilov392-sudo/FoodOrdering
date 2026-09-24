@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const productRouter = require('./routes/products.router');
 const restaurantRouter = require('./routes/restaurant.router');
 const authRouter = require('./routes/auth.router');
+const paymentRouter = require('./routes/payment.router');
 
 const uploadRouter = require('./routes/upload.router');
 
@@ -19,6 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const port = process.env.PORT;
 app.use('/auth', authRouter);
+app.use(paymentRouter);
 
 app.use('/upload', uploadRouter);
 

@@ -123,6 +123,18 @@ $cream: #fffaf5;
     background: #c85e30;
 }
 
+.formCard button:disabled {
+    cursor: wait;
+    opacity: .7;
+}
+
+.error {
+    margin: 15px 0 0;
+    color: #b42318;
+    font-size: 13px;
+    font-weight: 600;
+}
+
 .success {
     margin: 15px 0 0;
     color: #378449;

@@ -14,6 +14,7 @@ import UploadImage from '../pages/UploadImage/UploadImage.jsx';
 import CategoryPage from '../pages/CategoryPage/CategoryPage.jsx';
 import AdminPage from '../pages/AdminPage/AdminPage.jsx';
 import AddProduct from '../pages/AddProduct/AddProduct.jsx';
+import PaymentResult from '../pages/PaymentResult.jsx';
 
 const routes = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const routes = createBrowserRouter([
       {
         path: "orders",
         element: <Orderpage />,
+      },
+      {
+        path: "payment-result",
+        element: <PaymentResult />,
       },
       {
         path: "contact",

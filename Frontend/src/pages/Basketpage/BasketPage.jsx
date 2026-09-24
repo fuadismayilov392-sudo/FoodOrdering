@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { DataContext } from '../../Context/DataContext.jsx';
 import { Trash2, Minus, Plus, ShoppingBag } from 'lucide-react';
 import styles from './BasketPage.module.scss';
@@ -7,6 +8,7 @@ import Footer from '../../layouts/footer'
 
 function BasketPage() {
   const { basket, removeFromBasket, updateQuantity } = useContext(DataContext);
+  const navigate = useNavigate();
 
   const total = basket.reduce((sum, item) => sum + item.Price * item.quantity, 0);
 
@@ -74,7 +76,7 @@ function BasketPage() {
           <span>Cəmi</span>
           <strong>{total.toFixed(2)} AZN</strong>
         </div>
-        <button className={styles.checkoutBtn}>Sifarişi tamamla</button>
+        <button className={styles.checkoutBtn} onClick={() => navigate('/orders', { state: { items: basket } })}>Sifarişi tamamla</button>
       </div>
     </div>
     <Footer />
