@@ -20,7 +20,7 @@ import RouteError from '../pages/RouteError/RouteError.jsx';
 
 const routes = createBrowserRouter([
   {
-    path: "/FoodOrdering",
+    path: "/",
     element: <Mainroute />,
     errorElement: <RouteError />,
     children: [
@@ -86,6 +86,10 @@ const routes = createBrowserRouter([
       },
     ],
   },
-]);
+], {
+  // Keep routes rooted at "/" locally while supporting the GitHub Pages
+  // deployment path configured in vite.config.js (/FoodOrdering/).
+  basename: import.meta.env.BASE_URL,
+});
 
 export default routes;
