@@ -1,0 +1,52 @@
+.page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #fff8f1, #f7e6d6);
+}
+
+.card {
+  width: min(100%, 480px);
+  padding: 48px 32px;
+  text-align: center;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(91, 57, 34, 0.14);
+
+  h1 {
+    margin: 0 0 12px;
+    color: #3f3028;
+    font-size: clamp(1.75rem, 4vw, 2.4rem);
+  }
+
+  p:not(.code) {
+    margin: 0 0 28px;
+    color: #716258;
+    line-height: 1.6;
+  }
+}
+
+.code {
+  margin: 0 0 4px;
+  color: #e46d35;
+  font-size: clamp(4.5rem, 16vw, 7rem);
+  font-weight: 800;
+  letter-spacing: -0.08em;
+}
+
+.homeLink {
+  display: inline-block;
+  padding: 12px 20px;
+  color: #fff;
+  background: #e46d35;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    background: #c95828;
+    transform: translateY(-2px);
+  }
+}

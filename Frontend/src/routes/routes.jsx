@@ -15,11 +15,14 @@ import CategoryPage from '../pages/CategoryPage/CategoryPage.jsx';
 import AdminPage from '../pages/AdminPage/AdminPage.jsx';
 import AddProduct from '../pages/AddProduct/AddProduct.jsx';
 import PaymentResult from '../pages/PaymentResult.jsx';
+import NotFound from '../pages/NotFound/NotFound.jsx';
+import RouteError from '../pages/RouteError/RouteError.jsx';
 
 const routes = createBrowserRouter([
   {
-    path: "/",
+    path: "/FoodOrdering",
     element: <Mainroute />,
+    errorElement: <RouteError />,
     children: [
       {
         index: true,
@@ -76,6 +79,10 @@ const routes = createBrowserRouter([
       {
         path: 'admin/products/add',
         element: <AddProduct />,
+      },
+      {
+        path: '*',
+        element: <NotFound />,
       },
     ],
   },
