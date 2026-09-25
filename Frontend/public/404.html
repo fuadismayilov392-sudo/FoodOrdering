@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="az">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yönləndirilir...</title>
+    <script>
+      const basePath = '/FoodOrdering/';
+      const currentPath = window.location.pathname;
+      const route = currentPath.startsWith(basePath)
+        ? currentPath.slice(basePath.length)
+        : '';
+      const originalUrl = `/${route}${window.location.search}${window.location.hash}`;
+
+      window.location.replace(
+        `${basePath}?redirect=${encodeURIComponent(originalUrl)}`,
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
