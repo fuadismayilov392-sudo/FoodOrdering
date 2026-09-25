@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Mainroute from "../pages/Mainroute";
 import Homepage from "../pages/Homepage";
 
-import Menupage from "../pages/MenuPage";
+import Menupage from "../pages/Menupage";
 import Contactpage from "../pages/Contactpage";
 import Orderpage from "../pages/Orderspage";
 import BasketPage from "../pages/Basketpage/BasketPage";
