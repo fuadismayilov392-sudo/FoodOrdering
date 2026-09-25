@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DataContext } from '../../Context/DataContext.jsx';
 import { Trash2, Minus, Plus, ShoppingBag } from 'lucide-react';
-import styles from './BasketPage.module.scss';
+import styles from './Basketpage.module.scss';
 import Navbar from '../../layouts/header'
 import Footer from '../../layouts/footer'
 
