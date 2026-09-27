@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { api, API_URL } from '../../config/api.js';
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { DataContext } from '../../Context/DataContext.jsx';
@@ -15,7 +15,7 @@ function RestaurantMenuPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    Promise.all([axios.get(`http://localhost:5000/restaurants/${id}`), axios.get(`http://localhost:5000/restaurant/${id}`)])
+    Promise.all([api.get(`/restaurants/${id}`), api.get(`/restaurant/${id}`)])
       .then(([restaurantRes, foodsRes]) => { setRestaurant(restaurantRes.data); setFoods(foodsRes.data); })
       .catch(console.error)
       .finally(() => setLoading(false));
@@ -25,7 +25,7 @@ function RestaurantMenuPage() {
 
   return <><Navbar /><div className={styles.page}>
     <button type="button" className={styles.backButton} onClick={() => window.history.length > 1 ? navigate(-1) : navigate('/')} aria-label="Əvvəlki səhifəyə qayıt"><span aria-hidden="true">←</span> Geri</button>
-    {restaurant && <div className={styles.header}><img src={restaurant.logo || 'http://localhost:5000/uploads/1786832214949-images.webp'} alt={restaurant.CompanyName} className={styles.logo}/><div><h1>{restaurant.CompanyName}</h1><p>Açılır: {restaurant.openTime} · 😊 {restaurant.rating}</p></div></div>}
+    {restaurant && <div className={styles.header}><img src={restaurant.logo || `${API_URL}/uploads/1786832214949-images.webp`} alt={restaurant.CompanyName} className={styles.logo}/><div><h1>{restaurant.CompanyName}</h1><p>Açılır: {restaurant.openTime} · 😊 {restaurant.rating}</p></div></div>}
     <div className={styles['foods-grid']}>
       {foods.map((food) => <div className={styles['food-card']} key={food._id} onClick={() => navigate('/orders', { state: { food } })}>
         <img src={food.imageUrl || 'https://via.placeholder.com/300'} alt={food.FoodName} className={styles['food-image']}/>

@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { api } from '../../config/api.js'
 import React, { useState, useEffect } from 'react'
 import styles from './Body.module.scss'
 import { useNavigate } from 'react-router-dom'
@@ -12,7 +12,7 @@ function Body() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/products')
+    api.get('/products')
       .then((res) => {
         setProducts(res.data);
         setLoading(false);

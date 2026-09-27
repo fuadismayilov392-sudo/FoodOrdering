@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { api } from '../../config/api.js';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './AddProduct.module.scss';
 
-const API_URL = 'http://localhost:5000';
 const categories = [
   { value: 'soup', label: 'Şorba' },
   { value: 'salad', label: 'Salat' },
@@ -32,7 +31,7 @@ function AddProduct() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`${API_URL}/restaurants`)
+    api.get('/restaurants')
       .then((response) => setRestaurants(response.data))
       .catch(() => setError('Restoran siyahısı yüklənmədi. Serverin işlədiyini yoxlayın.'));
   }, []);
@@ -50,7 +49,7 @@ function AddProduct() {
     data.append('image', imageFile);
 
     try {
-      const response = await axios.post(`${API_URL}/upload`, data, {
+      const response = await api.post('/upload', data, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setForm((current) => ({ ...current, imageUrl: response.data.imageUrl }));
@@ -67,7 +66,7 @@ function AddProduct() {
     setIsSubmitting(true);
 
     try {
-      await axios.post(`${API_URL}/products`, { ...form, Price: Number(form.Price) });
+      await api.post('/products', { ...form, Price: Number(form.Price) });
       navigate('/admin');
     } catch (requestError) {
       setError(requestError.response?.data?.error || 'Məhsul əlavə edilə bilmədi. Məlumatları yoxlayın.');

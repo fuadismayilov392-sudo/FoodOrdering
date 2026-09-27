@@ -1,11 +1,10 @@
 import { useMemo, useState } from 'react';
-import axios from 'axios';
+import { api } from '../../config/api.js';
 import { Link, useLocation } from 'react-router-dom';
 import Navbar from '../../layouts/header';
 import Footer from '../../layouts/footer';
 import styles from './index.module.scss';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 function Orderpage() {
   const { state } = useLocation();
@@ -23,7 +22,7 @@ function Orderpage() {
     if (paymentMethod === 'cash') return setIsOrdered(true);
     setIsLoading(true);
     try {
-      const { data } = await axios.post(`${API_URL}/payments/checkout`, {
+      const { data } = await api.post('/payments/checkout', {
         items: items.map((item) => ({ productId: item._id, quantity: item.quantity || 1 })),
         customer: { fullName: form.get('fullName'), phone: form.get('phone'), email: form.get('email'), address: form.get('address') },
       });

@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import { api, API_URL } from '../../config/api.js'
 import { useState, useEffect } from 'react'
 import {useNavigate} from 'react-router-dom'
 import styles from './MenuPage.module.scss'
@@ -13,7 +13,7 @@ function Menupage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:5000/restaurants")
+    api.get('/restaurants')
     .then((res) => {
       setRestaurants(res.data);
       setLoading(false);
@@ -38,7 +38,7 @@ function Menupage() {
           onClick={() => navigate(`/restaurant/${restaurant._id}`)}>
             <div className = {styles["image-wrapper"]}>
               <img 
-                src = {restaurant.logo || "http://localhost:5000/uploads/1786832214949-images.webp"}
+                src = {restaurant.logo || `${API_URL}/uploads/1786832214949-images.webp`}
                 alt = {restaurant.CompanyName}
                 className = {styles["restaurant-image"]}/>
                 </div>

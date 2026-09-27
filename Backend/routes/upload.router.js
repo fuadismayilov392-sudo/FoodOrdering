@@ -19,7 +19,8 @@ router.post('/', upload.single('image'), (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: 'Şəkil tapılmadı' });
   }
-  const imageUrl = `http://localhost:5000/uploads/${req.file.filename}`;
+  const baseUrl = (process.env.PUBLIC_URL || `${req.protocol}://${req.get('host')}`).replace(/\/$/, '');
+  const imageUrl = `${baseUrl}/uploads/${req.file.filename}`;
   res.json({ imageUrl });
 });
 

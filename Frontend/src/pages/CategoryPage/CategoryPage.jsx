@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { api } from '../../config/api.js'
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import styles from './CategoryPage.module.scss'
@@ -12,7 +12,7 @@ function CategoryPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/category/${category}`)
+    api.get(`/category/${category}`)
       .then((res) => {
         setFoods(res.data);
         setLoading(false);

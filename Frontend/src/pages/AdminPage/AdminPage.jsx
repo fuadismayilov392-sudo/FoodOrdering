@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { api } from '../../config/api.js';
 import { Link } from 'react-router-dom';
 import styles from './AdminPage.module.scss';
 
-const API_URL = 'http://localhost:5000';
 
 function AdminPage() {
   const [restaurants, setRestaurants] = useState([]);
@@ -17,8 +16,8 @@ function AdminPage() {
     setError('');
     try {
       const [restaurantRes, productRes] = await Promise.all([
-        axios.get(`${API_URL}/restaurants`),
-        axios.get(`${API_URL}/products`),
+        api.get('/restaurants'),
+        api.get('/products'),
       ]);
       setRestaurants(restaurantRes.data);
       setProducts(productRes.data);
@@ -34,7 +33,7 @@ function AdminPage() {
   const deleteItem = async (type, id) => {
     if (!window.confirm('Bu elementi silmək istədiyinizə əminsiniz?')) return;
     try {
-      await axios.delete(`${API_URL}/${type}/${id}`);
+      await api.delete(`/${type}/${id}`);
       if (type === 'restaurants') setRestaurants((items) => items.filter((item) => item._id !== id));
       else setProducts((items) => items.filter((item) => item._id !== id));
     } catch (err) {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { api } from '../config/api.js';
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./header.module.scss";
 import LoginIcon from '@mui/icons-material/Login';
@@ -16,8 +16,8 @@ function Navbar() {
 
   useEffect(() => {
     Promise.all([
-      axios.get('http://localhost:5000/restaurants'),
-      axios.get('http://localhost:5000/products'),
+      api.get('/restaurants'),
+      api.get('/products'),
     ])
       .then(([restaurantRes, productRes]) => {
         setRestaurants(restaurantRes.data);

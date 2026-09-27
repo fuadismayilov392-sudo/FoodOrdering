@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+import { api } from '../../config/api.js';
 
 function UploadImage() {
   const [imageFile, setImageFile] = useState(null);
@@ -14,7 +14,7 @@ function UploadImage() {
     formData.append('image', imageFile);
 
     try {
-      const res = await axios.post('http://localhost:5000/upload', formData, {
+      const res = await api.post('/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setUploadedUrl(res.data.imageUrl);

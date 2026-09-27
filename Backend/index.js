@@ -14,13 +14,17 @@ const uploadRouter = require('./routes/upload.router');
 dotenv.config();
 
 const app = express();
+app.set('trust proxy', 1);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // şəkilləri "göstərmək" üçün
-app.use(cors());
+app.use(cors({
+  origin: process.env.CLIENT_URL || "https://food-ordering-six-nu.vercel.app",
+  credentials: true,
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const port = process.env.PORT;
 app.use('/auth', authRouter);
-app.use(paymentRouter);
+app.use('/', paymentRouter);
 
 app.use('/upload', uploadRouter);
 

@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { api } from '../../config/api.js'
 import React, { useState, useEffect } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import styles from './SearchResults.module.scss'
@@ -16,8 +16,8 @@ function SearchResults() {
 
   useEffect(() => {
     Promise.all([
-      axios.get('http://localhost:5000/restaurants'),
-      axios.get('http://localhost:5000/products'),
+      api.get('/restaurants'),
+      api.get('/products'),
     ])
       .then(([restaurantsRes, foodsRes]) => {
         setRestaurants(restaurantsRes.data);
